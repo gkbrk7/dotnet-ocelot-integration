@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Reservation.API.Infrastructure;
+using Reservation.API.Services;
 
 namespace ReservationAPI
 {
@@ -26,7 +28,7 @@ namespace ReservationAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddScoped<IReservationService, ReservationService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -44,7 +46,7 @@ namespace ReservationAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ReservationAPI v1"));
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 

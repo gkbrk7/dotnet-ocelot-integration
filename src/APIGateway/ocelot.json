@@ -1,0 +1,32 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/api/reservation/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 9001
+                }
+            ],
+            "UpstreamPathTemplate": "/r/{id}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/contact/{id}",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 9000
+                }
+            ],
+            "UpstreamPathTemplate": "/c/{id}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        }
+    ]
+}
